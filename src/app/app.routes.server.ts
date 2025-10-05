@@ -11,6 +11,6 @@ export const serverRoutes: ServerRoute[] = [
   {path:'cart', renderMode:RenderMode.Server},
   {
     path: '**',
-    renderMode: RenderMode.Prerender
+    renderMode: RenderMode.Server
   }
 ];

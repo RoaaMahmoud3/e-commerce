@@ -14,7 +14,8 @@ import { errorInterceptor } from './core/interceptors/error.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes ,  withInMemoryScrolling({scrollPositionRestoration:'top'}),withViewTransitions()),
-    provideClientHydration(withEventReplay()),
+    // provideClientHydration(withEventReplay()),
+    provideClientHydration(),
     provideHttpClient(withFetch() , withInterceptors([headersInterceptor , loadingInterceptor ,errorInterceptor ])),
     importProvidersFrom(CookieService , NgxSpinnerModule),
     provideAnimationsAsync(),

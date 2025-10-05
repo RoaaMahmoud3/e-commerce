@@ -1,0 +1,25 @@
+<section class="grid grid-cols-12 my-2 border-b border-gray-300 py-2 gap-6 ">
+    <div class="md:col-span-1 col-span-12">
+        <img [src]="item.product.imageCover" [alt]="item.product.title" class="md:w-full w-1/2">
+    </div>
+    <div class="md:col-span-11 col-span-12 flex justify-between items-center">
+        <div>
+            <h2 class="text-2xl">{{item.product.title}}</h2>
+            <span class="text-main my-3 block ">Price : {{item.price}} EGP</span>
+            <button (click)="onRemoveItem()" class="bg-main rounded cursor-pointer text-white px-4 py-2 transition hover:bg-main/80">
+                <i class="fa fa-trash-can"></i> Remove
+            </button>
+        </div>
+        <div class="space-x-2 flex items-center justify-end">
+            <button (click)="onUpdateCartCount(item.count+1)"
+            class="border-main border rounded cursor-pointer hover:text-white text-main px-4 py-2 transition hover:bg-main/80">
+                +
+            </button>
+            <span class="px-3">{{item.count}}</span>
+            <button (click)="onUpdateCartCount(item.count-1)"
+            class="border-main border rounded cursor-pointer hover:text-white text-main px-4 py-2 transition hover:bg-main/80">
+                -
+            </button>
+        </div>
+    </div>
+</section>

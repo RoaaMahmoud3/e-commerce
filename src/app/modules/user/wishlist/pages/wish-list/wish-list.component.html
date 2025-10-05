@@ -1,0 +1,41 @@
+@if(wishlistItems.count!=0){
+<section class="p-16 mx-auto bg-light rounded">
+    <h1 class="text-3xl font-bold text-center mb-3">My <span class="text-main">Wishlist</span>  </h1>
+    <p class="text-2xl text-center text-gray-500"> You have <span class="text-main">{{wishlistItems.count}}</span> items ready to see them</p>
+    <p class="mx-auto border-t-4 border-main md:w-1/6 w-1/2 rounded mt-5"></p>
+    <div class="grid grid-cols-12 my-5 gap-3.5 items-stretch">
+        @for (item of wishlistItems.data; track item._id) {
+        <div class="my-5 grid md:grid-cols-6 md:col-span-6 grid-cols-12 col-span-12 bg-white w-full border border-gray-200 mx-5 rounded-2xl shadow-neutral-600 shadow-md">
+        <div class="md:col-span-2 col-span-12 flex justify-center items-center "> 
+            <img class="p-4 w-full" [src]="item.imageCover" [alt]="item.title" />
+        </div>
+        <div class="md:col-span-4 col-span-12 mt-5">
+            <div class="px-5 pb-5 flex flex-col justify-between h-full ">
+                <a class="ml-auto" (click)="removeSpecificWishlistItem(item._id)" > <i class="fa-regular fa-trash-can  hover:text-red-700 text-red-500 cursor-pointer text-2xl"></i> </a>
+
+                <h5 class="text-2xl font-semibold  text-main line-clamp-2"> {{ item.title }} </h5>
+
+                <div class="flex items-center mt-2.5 mb-5">
+                    <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">
+                        {{ item.ratingsAverage }} <i class="fa-solid fa-star text-rating"></i>
+                    </span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-3xl font-semibold text-gray-900">{{ item.price }} EGP</span>
+                    <button (click)="addToCart(item._id)"
+                    class="text-white bg-main hover:bg-main/65  font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer">
+                    Add to cart
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    }
+    </div>
+</section>
+}
+@else {
+    <div class="flex justify-center items-center h-screen">
+        <h1 class="text-main text-4xl">No items in the wishlist !</h1>
+    </div>
+}

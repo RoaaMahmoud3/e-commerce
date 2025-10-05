@@ -1,0 +1,61 @@
+@if(ordersList.length !=0){
+<section class="p-10">
+    <h1 class="text-center text-5xl font-bold mb-3">All <span class="text-main">orders</span></h1>
+    <p class="md:text-2xl text-center text-gray-500 text-base ">Track your purchase history, payment status, and delivery details in one place.</p>
+    <p class="mx-auto border-t-4 border-main md:w-1/6 w-1/2 rounded mt-5"></p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3  gap-5 my-10 items-start">
+        @for (item of ordersList ; track item._id) {
+            <div class="bg-light rounded ">
+                <h1 class="p-5 font-semibold text-lg text-main"><span class="text-black">Order</span> #{{item._id}} </h1>
+                <div class="flex justify-between p-5 border-b-2 border-gray-400">
+                    @if(item.isPaid){
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">Paid</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3"> {{item.paidAt | date:'short'}} </span>
+                    }
+                    @else {
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">Not Paid</span>
+                    }
+                </div>
+                <div class="border-b-2 border-gray-400">
+                @for (item2 of item.cartItems; track item2._id) {
+                    <div class="grid grid-cols-12 p-5 space-x-2"> 
+                        <div class="col-span-4">
+                            <img [src]="item2.product.imageCover" [alt]="item2.product.title" class="size-16">
+                        </div>
+                        <div class="col-span-4">
+                            <h4 class="bg-amber-100 text-amber-800 text-sm font-semibold px-2.5 py-0.5 rounded-sm ms-3 text-center">
+                                 Quantity: {{item2.count }} </h4>
+                        </div>
+                        <div class="col-span-4">
+                            <h4 class="bg-amber-100 text-amber-800 text-sm font-semibold px-2.5 py-0.5 rounded-sm ms-3 text-center">
+                                {{item2.price }} EGP </h4>
+                        </div>
+                    </div>
+                }
+                </div>
+                <div class="flex justify-between items-center p-5">
+                <div>
+                    <span class="bg-main/55 text-main text-sm 2xl:text-2xl  font-semibold px-2.5 py-2 rounded-sm ms-3">
+                        Total price : {{item.totalOrderPrice}} EGP
+                    </span>
+                </div>
+                <div>
+                    @if(item.isDelivered){
+                        <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">Delivered</span>
+                    }
+                    @else {
+                        <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">Not Delivered</span>
+                    }
+                </div>
+                </div>      
+            </div>
+        }
+    </div>
+</section>
+}
+@else{
+    <div class="flex justify-center items-center h-screen">
+        <h1 class="text-main text-4xl">You haven’t placed any orders yet. Start shopping to create your first order!</h1>
+    </div>
+}

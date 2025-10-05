@@ -1,0 +1,10 @@
+
+.my-pagination {
+  ::ng-deep .ngx-pagination .pagination-previous,
+  ::ng-deep .ngx-pagination .pagination-next {
+    display: none !important;
+  }
+}
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: var(--color-main);
+}

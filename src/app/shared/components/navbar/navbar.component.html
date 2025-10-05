@@ -1,0 +1,57 @@
+<nav class="bg-light">
+    <div class="flex justify-between items-center max-w-screen-xl md:flex-nowrap flex-wrap mx-auto p-4">
+        <div class="lago">
+            <a routerLink="/" class="flex items-center gap-0.5">
+                <img src="./images/shopping-cart3.png" alt="shopping-cart" class="w-10">
+                <span class="text-2xl font-semibold">FreshCart</span>
+            </a>
+        </div>
+        <button (click)="toggleMobileMenu()" class="cursor-pointer md:hidden">
+            <i class="fa-solid fa-bars text-[25px]"></i>
+        </button>
+        <div [class.hidden]="!isMoblieOpen"
+        class="links md:flex items-center justify-between grow flex-wrap flex-col px-10 w-full md:my-auto my-5 md:flex-row ">
+            @if(authType=='user'){
+            <ul class="flex gap-4 flex-col md:flex-row ">
+                <li ><a routerLink="/home" routerLinkActive="text-main" class="hover:text-main ">Home</a></li>
+                <li><a routerLink="/products" routerLinkActive="text-main" class="hover:text-main">Products</a></li>
+                <li><a routerLink="/categories" routerLinkActive="text-main" class="hover:text-main">Categories</a></li>
+                <li><a routerLink="/brands" routerLinkActive="text-main" class="hover:text-main">Brands</a></li>
+                <li><a routerLink="/allorders" routerLinkActive="text-main" class="hover:text-main">Orders</a></li>
+            </ul>
+            }
+            <ul class="flex gap-5 justify-around  md:flex-row md:border-0 border-t mt-3 md:mt-0 pt-4 md:pt-0 ms-auto">
+                @if(authType=='auth'){
+                    <li><a routerLink="/login" routerLinkActive="text-main" class="hover:text-main">Login</a></li>
+                    <li><a routerLink="/register" routerLinkActive="text-main" class="hover:text-main">Sign up</a></li>
+                }
+                @else {
+                    <li class="relative">
+                        <a routerLink="/wishlist" routerLinkActive="text-main" class="hover:text-main"> 
+                        @if(wishListCounter()>0){<i class="fa-solid fa-heart text-2xl text-red-600"></i>}
+                        @else {<i class="fa-solid fa-heart text-2xl"></i>}
+                        <div class="absolute inline-flex justify-center items-center text-xs text-white
+                        bg-red-500 rounded-full -top-2 -end-2 p-[2px] ">
+                            {{wishListCounter()}}
+                        </div>
+                        </a>
+                    </li>
+                    <li class="relative">
+                        <a routerLink="/cart" routerLinkActive="text-main" class="hover:text-main"> 
+                        <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                        @if(cartCounter()>=0){
+                        <div class="absolute inline-flex justify-center items-center text-xs text-white
+                        bg-red-500 rounded-full -top-2 -end-2 p-[2px] ">
+                            {{cartCounter()}}
+                        </div>
+                        }
+                        </a>
+                    </li>
+                    <li><a  (click)="signOut()" routerLink="/logout"  class="text-white hover:bg-red-500 bg-red-600 px-4 py-2 rounded-2xl ">
+                        Logout <i class="fa-solid fa-right-from-bracket"></i>
+                    </a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

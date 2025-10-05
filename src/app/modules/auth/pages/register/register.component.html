@@ -1,0 +1,58 @@
+<div class="h-screen grid grid-cols-12 ">
+    <div  class="md:col-span-6 col-span-12 bg-main w-full rounded-b-[250px]  md:rounded-r-[250px] md:rounded-bl-[0] ">
+        <div class="text-white p-10 flex justify-center items-center h-full">
+            <div>
+                <h1 class="text-2xl md:text-7xl  font-bold mb-5">WELCOME !</h1>
+                <h3 class="text-center">sign up to continue</h3>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center items-center md:col-span-6 col-span-12 ">
+    <form [formGroup]="authForm" (ngSubmit)="getValues()" class="w-full p-10">
+        <h1 class="text-4xl font-bold mb-5 text-zinc-700">Sign up :</h1>
+        <div class="mb-5 w-full">
+            <input formControlName="name" type="text" class="bg-gray-100 focus:text-main border-2
+             border-main px-2 py-2.5 rounded-2xl w-full outline-main/70 mt-2 placeholder-main" placeholder="Type your name" />
+             <error-message [control]="authForm.get('name')"></error-message>
+        </div>
+        <div class="mb-5 w-full">
+            <input formControlName="email" type="email" class="bg-gray-100 focus:text-main border-2 border-main px-2 py-2.5 rounded-2xl w-full
+             outline-main/70 mt-2 placeholder-main" placeholder="Type your email" />
+             <error-message [control]="authForm.get('email')"></error-message>
+        </div>
+        <div class="mb-5 w-full relative">
+            <input formControlName="password" [type]="flag? 'password' : 'text' " class="bg-gray-100 focus:text-main border-2
+             border-main px-2 py-2.5 rounded-2xl w-full outline-main/70 mt-2 placeholder-main" placeholder="Type your password" />
+             <span (click)="flag=!flag" class="absolute top-2 end-4 translate-y-1/2 cursor-pointer">
+                @if(flag){ <i class="fas fa-eye-slash"></i>}
+                @else { <i class="fas fa-eye"></i>}
+             </span>
+             <error-message [control]="authForm.get('password')"></error-message>
+        </div>
+        <div class="mb-5 w-full relative">
+            <input formControlName="rePassword" [type]="flag? 'password' : 'text' " class="bg-gray-100 focus:text-main border-2
+             border-main px-2 py-2.5 rounded-2xl w-full outline-main/70 mt-2 placeholder-main" placeholder="Type your repassword" />
+             <span (click)="flag=!flag" class="absolute top-2 end-4 translate-y-1/2 cursor-pointer">
+                @if(flag){ <i class="fas fa-eye-slash"></i>}
+                @else { <i class="fas fa-eye"></i>}
+             </span>
+             <error-message [control]='authForm'></error-message>
+        </div>
+        <div class="flex mx-auto mb-5 gap-5">
+            <button [disabled]="isloading" class="mx-auto  py-3 w-1/2 bg-main hover:bg-main/80 transition duration-300 rounded-xl mt-5 text-white cursor-pointer">
+                @if(!isloading){sign up}
+                @else {Loading...}
+            </button>
+            <button routerLink="/login" class="mx-auto  py-3 w-1/2 border-2 border-main rounded-xl mt-5 text-main cursor-pointer">
+                Login
+            </button>
+        </div>
+        @if (errorMessage) {
+            <div class="bg-red-100 text-red-700 border border-red-400 p-4 mt-2 rounded ">
+                {{ errorMessage }}
+            </div>
+         }
+    </form>
+    </div>
+</div>
+

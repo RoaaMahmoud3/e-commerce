@@ -1,0 +1,28 @@
+<div class="product my-5 rounded-2xl p-4 cursor-pointer hover:border hover:border-main group">
+  <div class="my-4 flex justify-between">
+    <div class="group/view">
+    <a [routerLink]="['/product-details',product._id]" class="rounded-full border-2 border-main  p-4 group-hover/view:bg-main duration-300 transition-all">
+      <i class="fas fa-eye text-main group-hover/view:text-white duration-300 transition-all"></i>
+    </a>
+    </div>
+    <div>
+    <a class="p-4" (click)="onAddToWishlist()">
+      <i class="fa-solid fa-heart text-2xl  text-gray-400 hover:text-red-600"></i>
+    </a>
+    </div>
+  </div>
+    <img [src]="product.imageCover" [alt]="product.category.name" class="w-full" />
+    <h4 class="text-main">{{ product.category.name |titlecase}}</h4>
+    <h1 class="text-2xl font-bold line-clamp-1">{{ product.title | uppercase }}</h1>
+    <div class="flex justify-between my-4 px-4">
+        <strong>{{ product.price }} <span class="font-normal">EGP</span></strong>
+        <span>
+            <i class="fa-solid fa-star text-rating"></i> {{ product.ratingsAverage }}
+        </span>
+    </div>
+  
+  <button (click)="onAddToCart()" class="cursor-pointer w-full text-white px-5 py-3 rounded bg-main  transition-all duration-700 opacity-0 translate-y-full
+  group-hover:opacity-100 group-hover:translate-y-0 hover:bg-[#f27900]">
+    Add to cart
+  </button>
+</div>

@@ -1,0 +1,36 @@
+<div class="h-screen grid grid-cols-12">
+    <div class="col-span-12">
+        <form [formGroup]="checkOutForm" (ngSubmit)="getValues()">
+            <h1 class="text-4xl font-bold mb-5 text-zinc-700">Address now :</h1>
+            <div class="mb-5 w-full">
+                <textarea formControlName="details" class="bg-gray-100 focus:text-main border-2 border-main px-2 py-2.5 rounded-2xl w-full
+                    outline-main/70 mt-2 placeholder-main" placeholder="Type your details"></textarea>
+                <error-message [control]="checkOutForm.get('details')"></error-message>
+            </div>
+            <div class="mb-5 w-full">
+                <input formControlName="phone" type="tel" class="bg-gray-100 focus:text-main border-2 border-main px-2 py-2.5 rounded-2xl w-full
+                    outline-main/70 mt-2 placeholder-main" placeholder="Type your phone" />
+                <error-message [control]="checkOutForm.get('phone')"></error-message>
+            </div>
+            <div class="mb-5 w-full">
+                <input formControlName="city" type="text" class="bg-gray-100 focus:text-main border-2 border-main px-2 py-2.5 rounded-2xl w-full
+                    outline-main/70 mt-2 placeholder-main" placeholder="Type your city" />
+                <error-message [control]="checkOutForm.get('city')"></error-message>
+            </div>
+            <div class="flex mx-auto mb-5 gap-5">
+                <button class="mx-auto  py-3 w-1/2 bg-main hover:bg-main/80 transition duration-300 rounded-xl mt-5 text-white cursor-pointer">
+                    @if(!isloading){Payment By Visa}
+                    @else{Loading...}
+                </button>
+                <button class="mx-auto  py-3 w-1/2 bg-main hover:bg-main/80 transition duration-300 rounded-xl mt-5 text-white cursor-pointer">
+                Payment By Cash
+                </button>
+            </div>
+            @if (errorMessage) {
+                <div class="bg-red-100 text-red-700 border border-red-400 p-4 mt-2 rounded ">
+                    {{ errorMessage }}
+                </div>
+           }
+        </form>
+    </div>
+</div>

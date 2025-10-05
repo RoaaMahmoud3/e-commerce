@@ -1,0 +1,19 @@
+<section class="py-14">
+  <div class="flex justify-between p-2 items-center mb-4">
+    <h2 class="text-sm md:text-4xl">Shop Popular <span class="text-main">Categories</span></h2>
+    <p><a routerLink="/categories" class="hover:text-main font-semibold text-sm md:text-base">View All Categories
+       <span class="arrow"> > </span></a></p>
+  </div>
+  <div class="container">
+    <owl-carousel-o [options]="categoriesOptions">
+      @for (category of categoriesList; track category._id) {
+      <ng-template carouselSlide [id]="category._id">
+        <div class="border border-main rounded-2xl p-2">
+            <img [src]="category.image" [alt]="category.name" class="w-full h-[250px]  mb-2">
+            <h3 class="mt-2 font-semibold"> {{category.name}} </h3>
+        </div>
+      </ng-template>
+      }
+    </owl-carousel-o>
+  </div>
+</section>

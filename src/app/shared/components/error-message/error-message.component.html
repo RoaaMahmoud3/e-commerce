@@ -1,0 +1,39 @@
+
+@if(control?.errors&&control?.touched && !control?.getError('missmatch') ){
+<div class="bg-red-100 text-red-700 border border-red-400 p-4 mt-2 rounded mb-2">
+  <ul class="pl-5 list-disc">
+    @if(control?.getError('required')){
+        <li>Input is required</li>
+    }
+    @if(control?.getError('minlength')){
+        <li>Input must be at least 2 characters long.</li>
+    }
+    @if(control?.getError('maxlength')){
+        <li>Input must not exceed 20 characters.</li>
+    }
+    @if(control?.getError('email')){
+        <li>Please enter a valid email address.</li>
+    }
+    @if (control?.getError('pattern')) {
+        <li>Custom field should match the pattern</li>
+        <li>At least one uppercase letter</li>
+        <li>At least one lowercase letter</li>
+        <li>At least one digit</li>
+        <li>At least one special character (#?!@$%^&*–)</li>
+        <li>Finally , minimum length of 8 characters</li>
+    }
+    @if(control?.getError('egyptPhone')){
+        <li>Only a valid Egyptian phone number is accepted.</li>
+    }
+  </ul>
+</div>
+}
+
+
+@if(control?.getError('missmatch') && control?.get('rePassword')?.touched){
+          <div class="bg-red-100 text-red-700 border border-red-400 p-4 mt-2 rounded mb-2">
+            <ul class="pl-5 list-disc">
+                <li>Passwords do not match.</li>
+            </ul>
+          </div>
+         }

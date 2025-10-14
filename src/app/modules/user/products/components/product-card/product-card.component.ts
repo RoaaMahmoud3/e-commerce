@@ -13,6 +13,7 @@ export class ProductCardComponent {
   @Input() product:IProduct={} as IProduct;
   @Output() addToCart:EventEmitter<string> = new EventEmitter<string>();
   @Output() addToWishlist:EventEmitter<string> = new EventEmitter<string>();
+  @Input() wishlistProductIds: string[] = [];
 
   onAddToCart(){
     this.addToCart.emit(this.product._id);

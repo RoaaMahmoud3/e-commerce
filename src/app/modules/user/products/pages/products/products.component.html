@@ -1,14 +1,18 @@
 <section class="p-10">
   <h1 class="text-main text-5xl font-bold"><span class="text-black">All</span> Products :</h1>
-  <div class="flex justify-center my-5 ">
+  <div class="md:flex md:justify-center md:my-5 md:space-x-3 ">
     <input [(ngModel)]="word" type="text" class="bg-gray-100 focus:text-main border-2 border-main px-2 py-2.5 rounded-2xl md:w-1/2
     w-full outline-main/70 mt-2 placeholder-main" placeholder="Search about product" />
+
+    <app-category-filter [(ngModel)]="selectedCategory" [categoriesList]="categories"></app-category-filter>
+    <app-sort-products (sortChanged)="onSortChanged($event)" ></app-sort-products>
   </div>
   <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
     @for(product of productList | paginate:{ id: 'foo',itemsPerPage: pageSize,currentPage: p, totalItems: total } | search: word
-     ; track product._id){
+     | categoryFilterP: selectedCategory ; track product._id){
 
-      <product-card (addToCart)="addToCart($event)" (addToWishlist)="addToWishlist($event)" [product]="product"></product-card>
+      <product-card (addToCart)="addToCart($event)" (addToWishlist)="addToWishlist($event)" [product]="product" 
+      [wishlistProductIds]="wishlistProductIds" ></product-card>
     }
   </div>
 

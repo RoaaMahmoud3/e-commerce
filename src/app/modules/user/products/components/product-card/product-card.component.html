@@ -7,7 +7,10 @@
     </div>
     <div>
     <a class="p-4" (click)="onAddToWishlist()">
-      <i class="fa-solid fa-heart text-2xl  text-gray-400 hover:text-red-600"></i>
+      <i class="fa-solid fa-heart text-2xl  "
+      [class.text-red-600]="wishlistProductIds.includes(product._id)"
+      [class.text-gray-400]="!wishlistProductIds.includes(product._id)"
+      ></i>
     </a>
     </div>
   </div>

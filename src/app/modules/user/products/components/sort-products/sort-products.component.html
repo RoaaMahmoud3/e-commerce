@@ -1,0 +1,26 @@
+
+<div class="relative">
+  <input type="text" class="bg-gray-100 border-2 border-main px-2 py-2.5 rounded-2xl 
+    w-full outline-main/70 mt-2 text-main" readonly [value]="selectedSort" />
+  @if(isSortOpen){
+    <span><i class="fa-solid fa-chevron-down text-main hover:text-main/70 absolute top-4.5 right-2  translate-y-1/2 cursor-pointer" 
+    (click)="toggleSortMenu()"></i></span>
+  }
+  @else {
+  <span><i class="fa-solid fa-chevron-right text-main hover:text-main/70 absolute top-4.5 right-2 translate-y-1/2 cursor-pointer" 
+    (click)="toggleSortMenu()"></i></span>
+  }
+
+  <!-- dropdown -->
+  @if (isSortOpen) {
+    <ul class="absolute left-0 right-0 mt-1 border border-main rounded-2xl z-50 p-2 bg-amber-100">
+      <li (click)="selectSort('Newest First')" class="border-b border-main hover:bg-main p-1 cursor-pointer transition-all duration-300 rounded hover:text-white">Newest First</li>
+      <li (click)="selectSort('Oldest First')" class="border-b border-main hover:bg-main p-1 cursor-pointer transition-all duration-300 rounded hover:text-white">Oldest First</li>
+      <li (click)="selectSort('Price: Low to High')" class="border-b border-main hover:bg-main p-1 cursor-pointer transition-all duration-300 rounded hover:text-white">Price: Low to High</li>
+      <li (click)="selectSort('Price: High to Low')" class="border-b border-main hover:bg-main p-1 cursor-pointer transition-all duration-300 rounded hover:text-white">Price: High to Low</li>
+      <li (click)="selectSort('Highest Rated')" class=" hover:bg-main p-1 cursor-pointer transition-all duration-300 rounded hover:text-white">Highest Rated</li>
+    </ul>
+  }
+</div>
+
+

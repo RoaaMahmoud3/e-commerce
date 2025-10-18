@@ -2,17 +2,21 @@
   "version": 3,
   "buildCommand": "npm run build:ssr",
   "installCommand": "npm install",
-  "outputDirectory": "dist/fresh-card/browser",
-  "functions": {
-    "api/index.js": {
-      "runtime": "nodejs20.x"
+  "outputDirectory": "dist/fresh-card",
+  "builds": [
+    {
+      "src": "dist/fresh-card/server/server.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/fresh-card/browser/**",
+      "use": "@vercel/static"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/api/index.js"
+      "dest": "dist/fresh-card/server/server.mjs"
     }
   ]
 }
-

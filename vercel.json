@@ -3,20 +3,12 @@
   "buildCommand": "npm run build:ssr",
   "installCommand": "npm install",
   "outputDirectory": "dist/fresh-card",
+  "framework": null,
   "builds": [
-    {
-      "src": "dist/fresh-card/server/server.mjs",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "dist/fresh-card/browser/**",
-      "use": "@vercel/static"
-    }
+    { "src": "dist/fresh-card/server/server.mjs", "use": "@vercel/node" },
+    { "src": "dist/fresh-card/browser/**", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/fresh-card/server/server.mjs"
-    }
+    { "src": "/.*", "dest": "dist/fresh-card/server/server.mjs" }
   ]
 }

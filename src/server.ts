@@ -120,5 +120,6 @@ if (isMainModule(import.meta.url)) {
  * ✅ Export for Vercel SSR
  * Vercel needs this exact export signature
  */
-export const handler = createNodeRequestHandler(app);
-export default app;
+
+export default createNodeRequestHandler(app);
+

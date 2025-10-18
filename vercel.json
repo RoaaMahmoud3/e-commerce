@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "buildCommand": "npm run build:ssr",
+  "outputDirectory": "dist/fresh-card/browser",
+  "framework": "angular",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/server"
+    }
+  ]
+}

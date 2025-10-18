@@ -8,6 +8,7 @@
     "build:ssr": "ng build && ng run fresh-card:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "vercel-build": "npm run build:ssr",
     "serve:ssr:fresh-card": "node dist/fresh-card/server/server.mjs"
   },
   "private": true,

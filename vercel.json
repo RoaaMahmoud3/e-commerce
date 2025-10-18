@@ -5,8 +5,7 @@
   "outputDirectory": "dist/fresh-card/browser",
   "functions": {
     "api/index.js": {
-      "runtime": "nodejs20.x",
-      "handler": "dist/fresh-card/server/server.mjs"
+      "runtime": "nodejs20.x"
     }
   },
   "routes": [
@@ -16,5 +15,4 @@
     }
   ]
 }
-
 

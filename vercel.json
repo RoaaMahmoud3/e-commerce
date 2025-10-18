@@ -7,10 +7,11 @@
   "functions": {
     "api/server.js": {
       "runtime": "nodejs20.x",
-      "handler": "dist/fresh-card/server/main.server.mjs"
+      "handler": "dist/fresh-card/server/server.mjs"
     }
   },
   "rewrites": [
     { "source": "/(.*)", "destination": "/api/server.js" }
   ]
 }
+

@@ -1,13 +1,16 @@
 {
   "version": 3,
-  "buildCommand": "npm run build:ssr",
-  "outputDirectory": "dist/fresh-card/browser",
   "framework": "angular",
+  "buildCommand": "npm run build:ssr",
   "installCommand": "npm install",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/server"
+  "outputDirectory": "dist/fresh-card/browser",
+  "functions": {
+    "api/server.js": {
+      "runtime": "nodejs20.x",
+      "handler": "dist/fresh-card/server/main.server.mjs"
     }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/server.js" }
   ]
 }

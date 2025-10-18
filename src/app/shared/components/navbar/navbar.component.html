@@ -26,6 +26,9 @@
                     <li><a routerLink="/register" routerLinkActive="text-main" class="hover:text-main">Sign up</a></li>
                 }
                 @else {
+                    <li><a routerLink="/user-profile" routerLinkActive="text-main" class="hover:text-main ">
+                        <i class="fa-regular fa-user text-2xl"></i>
+                    </a></li>
                     <li class="relative">
                         <a routerLink="/wishlist" routerLinkActive="text-main" class="hover:text-main"> 
                         @if(wishListCounter()>0){<i class="fa-solid fa-heart text-2xl text-red-600"></i>}

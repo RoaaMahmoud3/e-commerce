@@ -51,6 +51,23 @@ export class AuthService {
     const token= this.cookieService.get('token');
     return token ? token : null ;
   }
+  saveInformationAboutUser(name:string , email:string , role:string):void{
+    this.cookieService.set('name',name);
+    this.cookieService.set('email',email);
+    this.cookieService.set('role',role);  
+  }
+  getUserName():string|null{
+    const name=this.cookieService.get('name');
+    return name ? name:null;
+  }
+  getUserEmail():string|null{
+    const email=this.cookieService.get('email');
+    return email ? email:null;
+  }
+  getUserRole():string|null{
+    const role=this.cookieService.get('role');
+    return role ? role:null;
+  }
   isloggedIn():boolean{
     return !!this.getToken();
   }

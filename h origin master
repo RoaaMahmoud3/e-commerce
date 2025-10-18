@@ -1,0 +1,23 @@
+[33mcommit 3ab45f42f735cbfa469980c607984a906e119c74[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: RoaaMahmoud3 <mroaa5188@gmail.com>
+Date:   Tue Oct 14 19:14:39 2025 +0300
+
+    add sort , filter elements and change color icon
+
+[33mcommit 7c013fadd0478d0e139e407474bf678c9af189f3[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: RoaaMahmoud3 <mroaa5188@gmail.com>
+Date:   Sun Oct 5 11:25:56 2025 +0300
+
+    Initial SSR setup
+
+[33mcommit 97cf09ea724bf0d474ebcbe9746fd0f6d95e5d65[m
+Author: RoaaMahmoud3 <mroaa5188@gmail.com>
+Date:   Sun Oct 5 10:55:56 2025 +0300
+
+    fix: install correct ngx-spinner and ngx-toastr versions
+
+[33mcommit 42ec996c93b11c8229d31c8fb6be7f33f27a1194[m
+Author: RoaaMahmoud3 <mroaa5188@gmail.com>
+Date:   Sun Oct 5 10:28:22 2025 +0300
+
+    initial commit

@@ -1,0 +1,9 @@
+.arrow {
+  display: inline-block;
+  animation: arrowMove 1s ease-in-out infinite alternate;
+}
+
+@keyframes arrowMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(6px); } 
+}

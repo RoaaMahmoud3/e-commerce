@@ -3,6 +3,7 @@ import { OrderService } from '../../services/order.service';
 import { AuthService } from '../../../../auth/services/auth.service';
 import { IOrderDetails } from '../../models/iorder-details';
 import { DatePipe } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-allorders',
@@ -13,6 +14,9 @@ import { DatePipe } from '@angular/common';
 export class AllordersComponent implements OnInit {
   private readonly orderService = inject(OrderService);
   private readonly authService = inject(AuthService);
+  private readonly cookieService = inject(CookieService);
+
+  totalSpending:number=0; 
   userId: string='';
   ordersList:IOrderDetails[]=[]
 
@@ -29,10 +33,20 @@ export class AllordersComponent implements OnInit {
     this.orderService.getUserOrders(this.userId).subscribe({
       next:(res )=>{
         this.ordersList=res;
-        // console.log(res);
+        this.orderService.saveOrdersLength(res.length);
       },
       error: (err) => {
         console.log(err.error);
+      }
+    })
+  }
+  getTotalSpending():void{
+    this.orderService.getUserOrders(this.userId).subscribe({
+      next:(res )=>{
+        for(let order of res){
+          this.totalSpending += order.totalOrderPrice;
+        }
+        this.cookieService.set('totalSpending', this.totalSpending.toString());
       }
     })
   }

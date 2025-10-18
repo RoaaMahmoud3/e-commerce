@@ -33,6 +33,7 @@ export class LoginComponent {
         next:(res)=>{ 
           if(res.message=='success'){
             this.authService.saveToken(res.token);
+            this.authService.saveInformationAboutUser(res.user.name , res.user.email , res.user.role);
             this.authService.decodedToken();
             this.router.navigate(['/home']);
             this.isloading=false;

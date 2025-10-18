@@ -1,0 +1,69 @@
+<section>
+    <div class="shadow-lg shadow-amber-500/50 p-5 rounded grid  grid-cols-12 mb-5">
+        <div class="md:col-span-2 col-span-12 py-5 flex justify-center items-center rounded-2xl border-0
+            md:border-r-4 border-r-0 md:border-b-0 border-b-4  border-main ">
+            <div class="rounded-full bg-amber-200 size-16 flex justify-center items-center shadow-sm shadow-amber-500">
+                <span class="text-main text-2xl font-bold"> {{userNameChar}} </span>
+            </div>
+        </div>
+        <div class="md:col-span-6 col-span-12 p-5">
+            <h2 class="md:text-2xl text-sm font-semibold mb-4 ">Welcome back, <span class="text-main"> {{ userName }} </span> ✨ 
+            Hope your day is as bright and fresh as you are</h2>
+            <h5 class="md:text-base text-sm"><i class="fa-regular fa-envelope mr-1 text-main"></i>
+               <span class="rounded-2xl p-1 bg-amber-200 text-main"> {{userEmail}} </span> </h5>
+        </div>
+        <div class="md:col-span-4 col-span-12 p-5 flex justify-center space-x-3 ">
+            <button  class="px-2  bg-main hover:bg-main/80 transition duration-300 rounded-2xl md:mt-14 mt-0 text-white cursor-pointer">
+                <i class="fa-regular fa-pen-to-square"></i> Edit Profile
+            </button>
+            <button  class="px-2 bg-amber-200 hover:bg-amber-300 transition duration-300 rounded-2xl md:mt-14 mt-0 text-main cursor-pointer">
+                <i class="fa-solid fa-lock"></i> Change Password
+            </button>
+        </div>
+    </div>
+    <div class="grid grid-cols-12 p-5 mb-5 gap-4">
+        <div class="md:col-span-4 col-span-12 shadow-lg shadow-amber-500/50 rounded-2xl p-3 grid grid-cols-12 border-0 border-t-2 border-main">
+            <div class="md:col-span-2 col-span-12 ">
+                <div class="rounded-full bg-amber-200 size-16 flex justify-center items-center shadow-sm shadow-amber-500">
+                    <i class="fa-solid fa-box-open text-main text-2xl"></i>
+                </div>
+            </div>
+            <div class="md:col-span-8 col-span-12 pl-4 flex justify-between items-center md:mt-0 mt-2">
+                <div>
+                    <h3 class="md:text-2xl text-sm font-semibold "> Total Orders </h3>
+                    <p class="text-main font-bold text-lg pl-4"> {{ordersLength}} </p>
+                </div>
+                <div >
+                    <a routerLink="/allorders"><span class="font-bold text-2xl hover:text-main cursor-pointer arrow">></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="md:col-span-4 col-span-12 shadow-lg shadow-amber-500/50  rounded-2xl p-3 grid grid-cols-12 border-0 border-t-2 border-main">
+            <div class="md:col-span-2 col-span-12 ">
+                <div class="rounded-full bg-amber-200 size-16 flex justify-center items-center shadow-sm shadow-amber-500">
+                    <i class="fa-solid fa-money-check-dollar text-main text-2xl"></i>
+                </div>
+            </div>
+            <div class="md:col-span-8 col-span-12 pl-4 md:mt-0 mt-2">
+                    <h3 class="md:text-2xl text-sm font-semibold "> Total Spent </h3>
+                    <p class="text-main font-bold text-lg pl-4"> {{ totalSpent | number:'1.2-2'}} EGP</p>
+            </div>
+        </div>
+        <div class="md:col-span-4 col-span-12 shadow-lg shadow-amber-500/50  rounded-2xl p-3 grid grid-cols-12 border-0 border-t-2 border-main">
+            <div class="md:col-span-2 col-span-12 ">
+                <div class="rounded-full bg-amber-200 size-16 flex justify-center items-center shadow-sm shadow-amber-500">
+                    <i class="fa-solid fa-map-location-dot text-main text-2xl"></i>
+                </div>
+            </div>
+            <div class="md:col-span-8 col-span-12 pl-4 flex justify-between items-center md:mt-0 mt-2">
+                <div>
+                    <h3 class="md:text-2xl text-sm font-semibold "> Save Addresses </h3>
+                    <p class="text-main font-bold text-lg pl-4">0</p>
+                </div>
+                <div >
+                    <span class="font-bold text-2xl hover:text-main cursor-pointer arrow">></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

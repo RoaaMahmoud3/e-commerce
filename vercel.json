@@ -1,24 +1,17 @@
+
 {
   "version": 3,
+  "framework": "angular",
   "buildCommand": "npm run build:ssr",
   "installCommand": "npm install",
-  "outputDirectory": "dist/fresh-card",
-  "builds": [
-    {
-      "src": "dist/fresh-card/server/server.mjs",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "dist/fresh-card/browser/**",
-      "use": "@vercel/static"
+  "outputDirectory": "dist/fresh-card/browser",
+  "functions": {
+    "api/server.js": {
+      "runtime": "nodejs20.x",
+      "handler": "dist/fresh-card/server/server.mjs"
     }
-  ],
+  },
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/fresh-card/server/server.mjs"
-    }
+    { "src": "/(.*)", "dest": "api/server.js" }
   ]
 }
-
-

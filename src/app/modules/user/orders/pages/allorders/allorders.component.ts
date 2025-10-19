@@ -34,6 +34,7 @@ export class AllordersComponent implements OnInit {
       next:(res )=>{
         this.ordersList=res;
         this.orderService.saveOrdersLength(res.length);
+        this.getTotalSpending();
       },
       error: (err) => {
         console.log(err.error);

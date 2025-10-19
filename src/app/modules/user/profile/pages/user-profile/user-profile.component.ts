@@ -24,7 +24,7 @@ export class UserProfileComponent {
   totalSpent:number= parseFloat(this.cookieService.get('totalSpending') || '0');
   
   ngOnInit():void{
-    console.log(this.ordersLength);
+    // console.log(this.ordersLength);
     console.log(this.totalSpent);
   }
   
